@@ -1,0 +1,57 @@
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Invoice for Jan</h2>
+            <p>Dear User Whats up Jan,</p>
+            <p>I hope this email finds you well. Please find attached your invoice below.</p>
+            <p>Invoice Details:</p>
+            <ul>
+                <li>Invoice Number: xyz</li>
+                <li>Due Date: xyz</li>
+                <li>Total Amount: xyz</li>
+            </ul>
+            <p>You can download your invoice by clicking the button below:</p>
+            <a href="xyz" class="button">Download Invoice</a>
+            <p>If you have any questions or concerns, please don't hesitate to contact us.</p>
+            <p>Thank you for your business!</p>
+        </div>
+    </div>
+
+    <!-- Floating Chatbot -->
+    <iframe src="https://www.chatbase.co/chatbot-iframe/KgSXhsyWXTa8PsnHpnZl3" style="position: fixed; bottom: 20px; right: 20px; width: 350px; height: 500px; border: none; z-index: 1000;">
+    </iframe>
+
+    <!-- Chatbot Script -->
+    <script>
+        (function() {
+            if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+                window.chatbase = (...arguments) => {
+                    if (!window.chatbase.q) {
+                        window.chatbase.q = [];
+                    }
+                    window.chatbase.q.push(arguments);
+                };
+                window.chatbase = new Proxy(window.chatbase, {
+                    get(target, prop) {
+                        if (prop === "q") {
+                            return target.q;
+                        }
+                        return (...args) => target(prop, ...args);
+                    }
+                });
+            }
+            const onLoad = function() {
+                const script = document.createElement("script");
+                script.src = "https://www.chatbase.co/embed.min.js";
+                script.id = "KgSXhsyWXTa8PsnHpnZl3";
+                script.domain = "www.chatbase.co";
+                document.body.appendChild(script);
+            };
+            if (document.readyState === "complete") {
+                onLoad();
+            } else {
+                window.addEventListener("load", onLoad);
+            }
+        })();
+    </script>
+</body>
